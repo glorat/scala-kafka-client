@@ -24,7 +24,7 @@ lazy val commonSettings = Seq(
   javacOptions in(Compile, doc) ++= Seq("-notimestamp", "-linksource"),
   autoAPIMappings := true,
 
-  publishTo := sonatypePublishTo.value,
+  // publishTo := sonatypePublishTo.value,
 
   //  publishTo :=
   //TODO publish snapshots to OSS
