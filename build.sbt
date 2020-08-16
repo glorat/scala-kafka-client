@@ -1,7 +1,7 @@
 lazy val commonSettings = Seq(
-  organization := "net.cakesolutions",
-  scalaVersion := "2.12.10",
-  crossScalaVersions := Seq("2.11.12", "2.12.10", "2.13.1"),
+  organization := "net.glorat",
+  scalaVersion := "2.12.12",
+  crossScalaVersions := Seq("2.12.12", "2.13.3"),
   publishMavenStyle := true,
   bintrayOrganization := Some("cakesolutions"),
   bintrayPackageLabels := Seq("scala", "kafka"),
@@ -24,6 +24,8 @@ lazy val commonSettings = Seq(
   javacOptions in(Compile, doc) ++= Seq("-notimestamp", "-linksource"),
   autoAPIMappings := true,
 
+  publishTo := sonatypePublishTo.value,
+
   //  publishTo :=
   //TODO publish snapshots to OSS
   //  if (Version.endsWith("-SNAPSHOT"))
@@ -41,8 +43,8 @@ lazy val commonSettings = Seq(
   publishArtifact in Test := false,
 
   pomExtra := <scm>
-    <url>git@github.com:cakesolutions/scala-kafka-client.git</url>
-    <connection>scm:git:git@github.com:cakesolutions/scala-kafka-client.git</connection>
+    <url>git@github.com:glorat/scala-kafka-client.git</url>
+    <connection>scm:git:git@github.com:glorat/scala-kafka-client.git</connection>
   </scm>
     <developers>
       <developer>
@@ -55,9 +57,16 @@ lazy val commonSettings = Seq(
         <name>Jaakko Pallari</name>
         <url>https://github.com/jkpl</url>
       </developer>
+      <developer>
+        <id>glorat</id>
+        <name>Kevin Tam</name>
+        <url>https://github.com/glorat</url>
+      </developer>
     </developers>,
 
-  licenses := ("MIT", url("http://opensource.org/licenses/MIT")) :: Nil
+  licenses := ("MIT", url("http://opensource.org/licenses/MIT")) :: Nil,
+
+  homepage := Some(url("https://github.com/glorat/scala-kafka-client")),
 )
 
 lazy val kafkaTestkit = project.in(file("testkit"))
